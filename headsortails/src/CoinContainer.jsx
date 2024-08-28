@@ -30,6 +30,7 @@ class CoinContainer extends Component {
             <div>
                 <h1>Heads or Tails</h1>
                 <button onClick={this.handleClick}>Flip Coin</button>
+                <p>Out of {this.state.nFlips} flips, there have been {this.state.nHeads} heads and {this.state.nTails} tails.</p>
             </div>
         )
     }
