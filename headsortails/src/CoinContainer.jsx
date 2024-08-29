@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
+import { choice } from './helpers'
+import PropTypes from 'prop-types'
 
 class CoinContainer extends Component {
     static defaultProps = {
@@ -20,6 +22,16 @@ class CoinContainer extends Component {
     }
 
     flipCoin() {
+        // eslint-disable-next-line react/prop-types
+        const newCoin = choice(this.props.coins)
+        this.setState(st => {
+            return {
+                currCoin: newCoin,
+                nFlips: st.nFlips + 1,
+                nHeads: st.nHeads + (newCoin.side === 'heads' ? 1 : 0),
+                nTails: st.nTails + (newCoin.side === 'tails' ? 1 : 0)
+            }
+        })
     }
 
     handleClick(e) {
