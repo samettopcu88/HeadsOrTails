@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import { choice } from './helpers'
-import PropTypes from 'prop-types'
+import Coin from './Coin'
+import './CoinContainer.css'
 
 class CoinContainer extends Component {
     static defaultProps = {
@@ -39,8 +40,9 @@ class CoinContainer extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="CoinContainer">
                 <h1>Heads or Tails</h1>
+                {this.state.currCoin && <Coin info={this.state.currCoin} /> }
                 <button onClick={this.handleClick}>Flip Coin</button>
                 <p>Out of {this.state.nFlips} flips, there have been {this.state.nHeads} heads and {this.state.nTails} tails.</p>
             </div>
